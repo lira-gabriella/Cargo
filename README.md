@@ -22,22 +22,6 @@ Database:PostgreSQL (to keep all our records secure)
 ORM: SQLAlchemy (to link our Python code to database tables)
 Validation: Pydantic (to check input data before it hits the database)
 
-
-Project Structurecargo_pos/├── app/│
-├── config.py         # Loads database settings│   ├── database.py 
-# Sets up database connection│   ├── models.py   
-# Database tables configuration│   ├── schemas.py        
-# Core logic (e.g. processing a sale)│   ├── main.py  
-# Ties everything together│   └── routers/       
-# API endpoints organized by type│       ├── users.py│ 
-├── customers.py│    
-├── suppliers.py│      
-├── categories.py│    
-├── products.py│      
-└── sales.py├── requirements.txt    
-# Python packages needed└── README.md            
-# This guide
-
 How to Setup and Run This Locally
 
 1. Download the Project
