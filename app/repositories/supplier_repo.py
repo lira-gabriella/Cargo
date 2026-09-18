@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from models.supplier import Supplier
+from app.models.supplier import Supplier
 
 
 class SupplierRepository:

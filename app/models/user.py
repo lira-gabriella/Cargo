@@ -1,7 +1,6 @@
+from app.database import Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-
-from database import Base
 
 
 class User(Base):
@@ -9,6 +8,8 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, nullable=False, unique=True, index=True)
-    password = Column(String, nullable=False)
+    password = Column(String, nullable=True)
+    hashed_password = Column(String, nullable=False)
+    role = Column(String, nullable=False, default="Cashier")
 
     sales = relationship("Sale", back_populates="user")

@@ -1,33 +1,14 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from jose import JWTError
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-from database import get_db
-from repositories.user_repo import user_repository
-from schemas.user import Token, UserCreate, UserRead
-from services import auth_service
-from services.security import decode_access_token
+from app.database import get_db
+from app.repositories.user_repo import user_repository
+from app.schemas.user import Token, UserCreate, UserRead
+from app.services import auth_service
+from app.services.security import oauth2_scheme
 
 router = APIRouter(tags=["auth"])
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
-
-
-def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
-    credentials_error = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    try:
-        user_id = decode_access_token(token)
-    except JWTError:
-        raise credentials_error
-    user = user_repository.get(db, int(user_id))
-    if not user:
-        raise credentials_error
-    return user
 
 
 @router.post("/users/register", response_model=UserRead, status_code=status.HTTP_201_CREATED)

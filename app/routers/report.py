@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from database import get_db
-from routers.auth import get_current_user
-from schemas.report import WarehouseStatusReport
-from services import report_service
+from app.database import get_db
+from app.dependencies import get_current_user
+from app.schemas.report import WarehouseStatusReport
+from app.services import report_service
 
 router = APIRouter(
     prefix="/reports", tags=["reports"], dependencies=[Depends(get_current_user)]

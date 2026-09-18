@@ -2,8 +2,8 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from repositories.customer_repo import customer_repository
-from schemas.customer import CustomerCreate, CustomerUpdate
+from app.repositories.customer_repo import customer_repository
+from app.schemas.customer import CustomerCreate, CustomerUpdate
 
 
 def get_customer(db: Session, id: int):

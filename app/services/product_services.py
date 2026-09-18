@@ -2,10 +2,10 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from repositories.product_repo import product_repository
-from repositories.category_repo import category_repository
-from repositories.supplier_repo import supplier_repository
-from schemas.product import ProductCreate, ProductUpdate
+from app.repositories.product_repo import product_repository
+from app.repositories.category_repo import category_repository
+from app.repositories.supplier_repo import supplier_repository
+from app.schemas.product import ProductCreate, ProductUpdate
 
 
 def get_product(db: Session, id: int):

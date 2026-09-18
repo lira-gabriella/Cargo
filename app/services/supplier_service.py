@@ -2,8 +2,8 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from repositories.supplier_repo import supplier_repository
-from schemas.supplier import SupplierCreate, SupplierUpdate
+from app.repositories.supplier_repo import supplier_repository
+from app.schemas.supplier import SupplierCreate, SupplierUpdate
 
 
 def get_supplier(db: Session, id: int):

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from models.payment import Payment
+from app.models.payment import Payment
 
 
 class PaymentRepository:

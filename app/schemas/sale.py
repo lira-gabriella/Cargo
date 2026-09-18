@@ -3,8 +3,8 @@ from decimal import Decimal
 
 from pydantic import BaseModel, ConfigDict, field_validator
 
-from models.sale import LogType
-from schemas.sale_item import SaleItemCreate, SaleItemRead
+from app.models.sale import LogType
+from app.schemas.sale_item import SaleItemCreate, SaleItemRead
 
 
 class SaleCreate(BaseModel):

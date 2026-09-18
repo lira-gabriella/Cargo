@@ -1,10 +1,10 @@
-from fastapi import FastAPI
-
-import models
-from database import Base, engine
-from routers import auth, category, customer, payment, product, receipt, report, sale, supplier
+from app import models
+from app.database import Base, engine
+from app.routers import auth, category, customer, payment, product, receipt, report, sale, supplier
 
 Base.metadata.create_all(bind=engine)
+
+from fastapi import FastAPI
 
 app = FastAPI(title="CARGO Ltd POS API", version="1")
 
@@ -17,3 +17,8 @@ app.include_router(sale.router)
 app.include_router(payment.router)
 app.include_router(receipt.router)
 app.include_router(report.router)
+
+
+@app.get("/")
+def root():
+    return {"message": "Welcome to the point of sale system API"}

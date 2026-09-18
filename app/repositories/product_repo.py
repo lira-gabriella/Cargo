@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from models.product import Product
+from app.models.product import Product
 
 
 class ProductRepository:

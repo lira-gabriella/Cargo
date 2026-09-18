@@ -1,7 +1,6 @@
+from app.database import Base
 from sqlalchemy import Column, Integer, String, Numeric, ForeignKey
 from sqlalchemy.orm import relationship
-
-from database import Base
 
 
 class Product(Base):

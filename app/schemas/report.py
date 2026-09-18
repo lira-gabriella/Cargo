@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from pydantic import BaseModel
 
-from schemas.sale import SaleRead
+from app.schemas.sale import SaleRead
 
 
 class WarehouseStatusReport(BaseModel):

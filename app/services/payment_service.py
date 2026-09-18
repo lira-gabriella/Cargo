@@ -3,10 +3,10 @@ import secrets
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from repositories.payment_repo import payment_repository
-from repositories.receipt_repo import receipt_repository
-from repositories.sale_repo import sale_repository
-from schemas.payment import PaymentCreate
+from app.repositories.payment_repo import payment_repository
+from app.repositories.receipt_repo import receipt_repository
+from app.repositories.sale_repo import sale_repository
+from app.schemas.payment import PaymentCreate
 
 
 def get_payment(db: Session, payment_id: int):

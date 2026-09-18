@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from database import get_db
-from routers.auth import get_current_user
-from schemas.receipt import ReceiptRead
-from services import receipt_service
+from app.database import get_db
+from app.dependencies import get_current_user
+from app.schemas.receipt import ReceiptRead
+from app.services import receipt_service
 
 router = APIRouter(
     prefix="/receipts", tags=["receipts"], dependencies=[Depends(get_current_user)]

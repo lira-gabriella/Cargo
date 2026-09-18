@@ -2,8 +2,8 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from repositories.category_repo import category_repository
-from schemas.category import CategoryCreate, CategoryUpdate
+from app.repositories.category_repo import category_repository
+from app.schemas.category import CategoryCreate, CategoryUpdate
 
 
 def get_category(db: Session, id: int):

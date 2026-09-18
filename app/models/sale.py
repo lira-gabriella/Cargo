@@ -1,11 +1,10 @@
+from app.database import Base
 import enum
 
 from sqlalchemy import Column, Integer, Numeric, DateTime, ForeignKey
 from sqlalchemy import Enum as SAEnum
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-
-from database import Base
 
 
 class LogType(str, enum.Enum):

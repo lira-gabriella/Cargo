@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from models.user import User
+from app.models.user import User
 
 
 class UserRepository:
@@ -9,6 +9,11 @@ class UserRepository:
 
     def get_by_username(self, db: Session, username: str):
         return db.query(User).filter(User.username == username).first()
+
+    
+    def get_by_id(self, db: Session, username: int):
+        return db.query(User).filter(User.id == username).first()
+    
 
     def get_all(self, db: Session):
         return db.query(User).all()

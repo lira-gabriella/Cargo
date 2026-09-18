@@ -3,11 +3,11 @@ from decimal import Decimal
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from repositories.sale_repo import sale_repository
-from repositories.sale_item_repo import sale_item_repository
-from repositories.product_repo import product_repository
-from repositories.customer_repo import customer_repository
-from schemas.sale import SaleCreate
+from app.repositories.sale_repo import sale_repository
+from app.repositories.sale_item_repo import sale_item_repository
+from app.repositories.product_repo import product_repository
+from app.repositories.customer_repo import customer_repository
+from app.schemas.sale import SaleCreate
 
 
 def get_sale(db: Session, sale_id: int):

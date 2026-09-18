@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from sqlalchemy.orm import Session
 
-from repositories.sale_repo import sale_repository
+from app.repositories.sale_repo import sale_repository
 
 
 def get_status_report(db: Session, recent_limit: int = 10):
