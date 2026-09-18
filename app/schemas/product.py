@@ -1,14 +1,14 @@
 from decimal import Decimal
 from typing import Optional
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ProductBase(BaseModel):
     service_name: str
     category_id: int
     supplier_id: int
-    price: Decimal
+    price: Decimal = Field(ge=0)
 
 
 class ProductCreate(ProductBase):

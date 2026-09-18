@@ -45,6 +45,36 @@ How to Setup and Run This Locally
    
    2.Tax Check Test: Try creating two different customers using the exact same tin_number. The system will block the second one to keep customer profiles clean and accurate.
    
-   3.Checkout & Gate Pass Test: Send a checkout payload to POST /sales with a mix of items. If the customer didn't pay enough money to cover the total bill, the transaction will fail.
-   If they pay the correct amount, it succeeds and spits out a gate pass code like: gate_pass_code: KGL-GATE-IMPORT-A1B2C3D4.
+  3.Checkout & Gate Pass Test: Send a checkout payload to POST /sales with a mix of items. If the customer didn't pay enough money to cover the total bill, the transaction will fail.
+  If they pay the correct amount, it succeeds and spits out a gate pass code like: gate_pass_code: KGL-GATE-IMPORT-A1B2C3D4.
+
+
+Running Tests
+
+The project uses Pytest with SQLite as the test database. The test environment is isolated from the PostgreSQL development database.
+
+1. Activate the virtual environment
+
+source env/bin/activate
+
+2. Run all tests
+
+PYTHONPATH=. pytest tests/
+
+3. Run a specific test file
+
+PYTHONPATH=. pytest tests/test_auth.py
+PYTHONPATH=. pytest tests/test_category.py
+PYTHONPATH=. pytest tests/test_supplier.py
+PYTHONPATH=. pytest tests/test_customer.py
+PYTHONPATH=. pytest tests/test_product.py
+PYTHONPATH=. pytest tests/test_sale.py
+PYTHONPATH=. pytest tests/test_payment.py
+PYTHONPATH=. pytest tests/test_receipt.py
+PYTHONPATH=. pytest tests/test_report.py
+PYTHONPATH=. pytest tests/test_security.py
+PYTHONPATH=. pytest tests/test_main.py
+
+All tests use SQLite in-memory database and run independently. No PostgreSQL is required for tests.
+
    

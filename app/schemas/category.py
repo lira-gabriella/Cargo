@@ -1,10 +1,10 @@
 from typing import Optional
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class CategoryBase(BaseModel):
-    category_name: str
+    category_name: str = Field(min_length=1)
 
 
 class CategoryCreate(CategoryBase):
